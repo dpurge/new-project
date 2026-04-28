@@ -1,0 +1,7 @@
+{
+  "project_name": "Python CLI",
+  "project_slug": "python-cli",
+  "description": "Example Python CLI application using Typer",
+  "package_name": "python_cli",
+  "command_name": "python-cli"
+}

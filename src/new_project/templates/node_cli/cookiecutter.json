@@ -1,0 +1,6 @@
+{
+  "project_name": "Node CLI",
+  "project_slug": "node-cli",
+  "description": "Example Node.js CLI application using TypeScript",
+  "command_name": "node-cli"
+}

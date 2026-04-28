@@ -1,0 +1,9 @@
+{
+  "project_name": "Rust REST Service",
+  "project_slug": "rust-rest-service",
+  "description": "REST service built with Axum and PostgreSQL",
+  "http_port": "3000",
+  "postgres_db": "app_db",
+  "postgres_user": "app_user",
+  "postgres_password": "app_password"
+}

@@ -1,0 +1,7 @@
+{
+  "project_name": "Go CLI",
+  "project_slug": "go-cli",
+  "description": "Example Go CLI application",
+  "module_path": "github.com/example/go-cli",
+  "binary_name": "go-cli"
+}

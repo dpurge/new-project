@@ -1,0 +1,33 @@
+services:
+  api:
+    build:
+      context: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      APP_NAME: {{ cookiecutter.project_name }}
+      APP_HOST: 0.0.0.0
+      APP_PORT: {{ cookiecutter.http_port }}
+      DATABASE_URL: postgres://{{ cookiecutter.postgres_user }}:{{ cookiecutter.postgres_password }}@postgres:5432/{{ cookiecutter.postgres_db }}
+    ports:
+      - "{{ cookiecutter.http_port }}:{{ cookiecutter.http_port }}"
+
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: {{ cookiecutter.postgres_db }}
+      POSTGRES_USER: {{ cookiecutter.postgres_user }}
+      POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U {{ cookiecutter.postgres_user }} -d {{ cookiecutter.postgres_db }}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

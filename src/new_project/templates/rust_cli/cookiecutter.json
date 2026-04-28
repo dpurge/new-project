@@ -1,0 +1,6 @@
+{
+  "project_name": "Rust CLI",
+  "project_slug": "rust-cli",
+  "description": "Example Rust CLI application using clap",
+  "binary_name": "rust-cli"
+}

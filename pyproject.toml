@@ -1,0 +1,37 @@
+[project]
+name = "new-project"
+version = "0.1.0"
+description = "CLI for scaffolding projects from internal templates"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cookiecutter==2.7.1",
+    "rich==15.0.0",
+    "typer==0.24.1",
+]
+
+[project.scripts]
+new-project = "new_project.cli:app"
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest==9.0.2",
+]
+
+[tool.pytest]
+minversion = "9.0"
+addopts = ["-ra", "--import-mode=importlib"]
+testpaths = ["tests"]
+
+[tool.uv.build-backend]
+source-include = [
+    "src/new_project/templates/**/*.json",
+    "src/new_project/templates/**/*.md",
+    "src/new_project/templates/**/*.html",
+    "src/new_project/templates/**/*.css",
+    "src/new_project/templates/**/.gitignore",
+]
