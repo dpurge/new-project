@@ -1,8 +1,14 @@
-## new-project
+# The new-project command
 
 `new-project` is a small CLI for scaffolding projects from internal templates.
 
-### Layout
+## Call without installing
+
+```sh
+uvx --from https://github.com/dpurge/new-project.git new-project --help
+```
+
+## Layout
 
 - `src/new_project/cli.py`: root Typer application
 - `src/new_project/commands/`: thin CLI command wrappers
@@ -10,7 +16,7 @@
 - `src/new_project/templates/`: internal template definitions
 - `tests/`: CLI and application tests
 
-### Usage
+## Usage
 
 List the available templates:
 
@@ -77,7 +83,7 @@ To skip prompts entirely and use template defaults for any missing values, use
 uv run new-project create static-html-site --defaults
 ```
 
-### Tests
+## Tests
 
 Run the test suite with:
 

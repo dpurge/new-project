@@ -34,10 +34,10 @@ TEMPLATES: dict[str, Template] = {
         description="A Rust REST service using axum, tokio, serde, sqlx, and tower-http with a PostgreSQL backend.",
         directory_name="rust_rest_postgres",
     ),
-    "static-html-site": Template(
-        name="static-html-site",
+    "html-static": Template(
+        name="html-static",
         description="A minimal static HTML site with semantic structure and a stylesheet.",
-        directory_name="static_html_site",
+        directory_name="html_static",
     ),
 }
 
