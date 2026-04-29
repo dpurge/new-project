@@ -1,0 +1,6 @@
+{
+  "project_name": "LLM Chat",
+  "project_slug": "llm-chat",
+  "description": "A SolidJS chat UI for an OpenAI-compatible streaming API",
+  "site_title": "LLM Chat"
+}

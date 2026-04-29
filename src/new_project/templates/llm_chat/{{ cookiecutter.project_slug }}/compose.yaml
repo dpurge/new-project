@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    environment:
+      LLM_API_ORIGIN: "http://host.docker.internal:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "3000:8080"

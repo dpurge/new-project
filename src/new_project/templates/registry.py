@@ -24,6 +24,11 @@ TEMPLATES: dict[str, Template] = {
         description="A Python CLI application using uv and Typer with optional configuration loaded from the user's home directory.",
         directory_name="python_cli",
     ),
+    "solid-site": Template(
+        name="solid-site",
+        description="A static SolidStart site powered by Deno, SolidBase, and MDX content.",
+        directory_name="solid_site",
+    ),
     "rust-cli": Template(
         name="rust-cli",
         description="A Rust CLI application using clap with optional configuration loaded from the user's home directory.",
@@ -38,6 +43,26 @@ TEMPLATES: dict[str, Template] = {
         name="html-static",
         description="A minimal static HTML site with semantic structure and a stylesheet.",
         directory_name="html_static",
+    ),
+    "llm-api": Template(
+        name="llm-api",
+        description="A Rust streaming proxy for an OpenAI-compatible LLM backend configured through environment variables.",
+        directory_name="llm_api",
+    ),
+    "llm-chat": Template(
+        name="llm-chat",
+        description="A SolidJS chat interface that streams responses from an OpenAI-compatible chat API such as llm-api.",
+        directory_name="llm_chat",
+    ),
+    "llm-stack": Template(
+        name="llm-stack",
+        description="A combined Rust LLM proxy and SolidJS chat UI wired together with Docker Compose.",
+        directory_name="llm_stack",
+    ),
+    "llm-mcp": Template(
+        name="llm-mcp",
+        description="A Rust MCP server template that supports stdio, Streamable HTTP, and legacy HTTP+SSE transports.",
+        directory_name="llm_mcp",
     ),
 }
 

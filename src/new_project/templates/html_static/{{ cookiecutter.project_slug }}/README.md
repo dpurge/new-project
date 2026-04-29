@@ -1,3 +1,3 @@
 # {{ cookiecutter.project_name }}
 
-Generated with `new-project create static-html-site`.
+Generated with `new-project create html-static`.

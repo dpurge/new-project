@@ -1,0 +1,26 @@
+---
+title: {{ cookiecutter.site_title }}
+description: {{ cookiecutter.description }}
+layout: home
+---
+
+# {{ cookiecutter.project_name }}
+
+{{ cookiecutter.description }}
+
+This starter uses Deno tasks to drive a SolidStart application configured with
+SolidBase, so your content can live directly in MDX route files.
+
+## What you get
+
+- Static site generation through SolidStart and SolidBase
+- MDX pages with front matter and table-of-contents support
+- A Deno-first local workflow backed by npm packages
+
+:::tip[Start editing]
+Update the files in `src/routes/` to shape your docs structure and content.
+:::
+
+```bash
+deno task dev
+```

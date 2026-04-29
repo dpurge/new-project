@@ -1,0 +1,8 @@
+{
+  "project_name": "LLM Stack",
+  "project_slug": "llm-stack",
+  "description": "A Rust LLM proxy and SolidJS chat UI wired together with Docker Compose",
+  "site_title": "LLM Stack",
+  "api_port": "8080",
+  "chat_port": "3000"
+}

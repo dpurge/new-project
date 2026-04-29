@@ -1,0 +1,32 @@
+---
+title: Project Structure
+description: Understand the generated files in the starter.
+---
+
+# Project Structure
+
+[[toc]]
+
+## Top-level files
+
+| Path | Purpose |
+| ---- | ------- |
+| `deno.json` | Defines Deno tasks for development, builds, and type-checking. |
+| `package.json` | Declares SolidStart, SolidBase, and supporting npm packages. |
+| `app.config.ts` | Wraps SolidStart with `withSolidBase(...)` and site theme config. |
+
+## Application files
+
+| Path | Purpose |
+| ---- | ------- |
+| `src/app.tsx` | Root HTML shell used by SolidStart. |
+| `src/entry-client.tsx` | Browser entrypoint. |
+| `src/entry-server.tsx` | Server entrypoint for rendering. |
+| `src/routes/[...404].tsx` | Catch-all route that renders `SolidBaseApp`. |
+| `src/routes/**/*.mdx` | Your site content and page metadata. |
+
+## Customizing navigation
+
+Navigation and sidebars are configured in `app.config.ts`. Add or remove MDX
+pages first, then update the `themeConfig.nav` and `themeConfig.sidebar`
+sections to match the content tree.

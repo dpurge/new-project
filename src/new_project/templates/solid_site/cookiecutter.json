@@ -1,0 +1,6 @@
+{
+  "project_name": "Solid Site",
+  "project_slug": "solid-site",
+  "description": "Static documentation site using Deno, SolidStart, SolidBase, and MDX",
+  "site_title": "Solid Site"
+}

@@ -1,0 +1,6 @@
+{
+  "project_name": "LLM MCP Server",
+  "project_slug": "llm-mcp",
+  "description": "A Rust MCP server with stdio, Streamable HTTP, and legacy HTTP+SSE transports",
+  "http_port": "8080"
+}

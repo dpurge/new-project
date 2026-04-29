@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    environment:
+      HOST: 0.0.0.0
+      PORT: "{{ cookiecutter.http_port }}"
+      LLM_PROVIDER: "openai"
+      LLM_MODEL: "gpt-4.1-mini"
+      LLM_API_KEY: "${LLM_API_KEY:?set LLM_API_KEY in your shell or .env file}"
+      # Override for Anthropic or Ollama as needed.
+      # LLM_BASE_URL: "https://api.anthropic.com"
+      # LLM_BASE_URL: "http://host.docker.internal:11434"
+      # MCP_SERVER_CONFIG: "/app/mcp_servers.example.json"
+      MEMORY_MAX_MESSAGES: "12"
+      AGENT_MAX_STEPS: "6"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "{{ cookiecutter.http_port }}:{{ cookiecutter.http_port }}"

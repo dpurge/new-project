@@ -1,0 +1,27 @@
+services:
+  llm-api:
+    build:
+      context: ./llm-api
+    environment:
+      HOST: 0.0.0.0
+      PORT: "{{ cookiecutter.api_port }}"
+      LLM_PROVIDER: "${LLM_PROVIDER:-openai}"
+      LLM_BASE_URL: "${LLM_BASE_URL:-}"
+      LLM_MODEL: "${LLM_MODEL:-gpt-4.1-mini}"
+      LLM_API_KEY: "${LLM_API_KEY:-}"
+      MEMORY_MAX_MESSAGES: "${MEMORY_MAX_MESSAGES:-12}"
+      AGENT_MAX_STEPS: "${AGENT_MAX_STEPS:-6}"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "{{ cookiecutter.api_port }}:{{ cookiecutter.api_port }}"
+
+  llm-chat:
+    build:
+      context: ./llm-chat
+    environment:
+      LLM_API_ORIGIN: "http://llm-api:{{ cookiecutter.api_port }}"
+    depends_on:
+      - llm-api
+    ports:
+      - "{{ cookiecutter.chat_port }}:8080"

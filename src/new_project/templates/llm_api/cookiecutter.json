@@ -1,0 +1,6 @@
+{
+  "project_name": "LLM API",
+  "project_slug": "llm-api",
+  "description": "A Rust streaming proxy for an OpenAI-compatible LLM backend",
+  "http_port": "8080"
+}

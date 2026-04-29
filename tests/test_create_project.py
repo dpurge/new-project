@@ -154,6 +154,132 @@ def test_create_node_docs_template_writes_expected_files(tmp_path: Path) -> None
     assert len(created_files) >= 14
 
 
+def test_create_llm_api_template_writes_expected_files(tmp_path: Path) -> None:
+    created_files = create_project(
+        template_name="llm-api",
+        destination=tmp_path,
+        interactive=False,
+        extra_context={
+            "project_name": "LLM API",
+            "project_slug": "llm-api-app",
+            "description": "Streaming proxy",
+            "http_port": "8080",
+        },
+    )
+
+    project_dir = tmp_path / "llm-api-app"
+
+    assert (project_dir / "Cargo.toml").exists()
+    assert (project_dir / "Dockerfile").exists()
+    assert (project_dir / "README.md").exists()
+    assert (project_dir / "compose.yaml").exists()
+    assert (project_dir / "mcp_servers.example.json").exists()
+    assert (project_dir / "src/main.rs").exists()
+    assert (project_dir / "src/config.rs").exists()
+    assert (project_dir / "src/error.rs").exists()
+    assert (project_dir / "src/agent.rs").exists()
+    assert (project_dir / "src/mcp.rs").exists()
+    assert (project_dir / "src/providers.rs").exists()
+    assert (project_dir / "src/tools.rs").exists()
+    assert (project_dir / "src/memory.rs").exists()
+    assert (project_dir / "src/models.rs").exists()
+    assert (project_dir / "src/state.rs").exists()
+    assert len(created_files) >= 13
+
+
+def test_create_llm_chat_template_writes_expected_files(tmp_path: Path) -> None:
+    created_files = create_project(
+        template_name="llm-chat",
+        destination=tmp_path,
+        interactive=False,
+        extra_context={
+            "project_name": "LLM Chat",
+            "project_slug": "llm-chat-app",
+            "description": "Streaming chat UI",
+            "site_title": "LLM Chat",
+        },
+    )
+
+    project_dir = tmp_path / "llm-chat-app"
+
+    assert (project_dir / "package.json").exists()
+    assert (project_dir / "tsconfig.json").exists()
+    assert (project_dir / "vite.config.ts").exists()
+    assert (project_dir / "Dockerfile").exists()
+    assert (project_dir / "compose.yaml").exists()
+    assert (project_dir / "nginx.conf.template").exists()
+    assert (project_dir / "src/main.tsx").exists()
+    assert (project_dir / "src/app.tsx").exists()
+    assert (project_dir / "src/styles.css").exists()
+    assert len(created_files) >= 9
+
+
+def test_create_llm_stack_template_writes_expected_files(tmp_path: Path) -> None:
+    created_files = create_project(
+        template_name="llm-stack",
+        destination=tmp_path,
+        interactive=False,
+        extra_context={
+            "project_name": "LLM Stack",
+            "project_slug": "llm-stack-app",
+            "description": "Combined chat stack",
+            "site_title": "LLM Stack",
+            "api_port": "8080",
+            "chat_port": "3000",
+        },
+    )
+
+    project_dir = tmp_path / "llm-stack-app"
+
+    assert (project_dir / "README.md").exists()
+    assert (project_dir / "compose.yaml").exists()
+    assert (project_dir / "llm-api/Cargo.toml").exists()
+    assert (project_dir / "llm-api/Dockerfile").exists()
+    assert (project_dir / "llm-api/mcp_servers.example.json").exists()
+    assert (project_dir / "llm-api/src/main.rs").exists()
+    assert (project_dir / "llm-api/src/agent.rs").exists()
+    assert (project_dir / "llm-api/src/mcp.rs").exists()
+    assert (project_dir / "llm-api/src/providers.rs").exists()
+    assert (project_dir / "llm-api/src/tools.rs").exists()
+    assert (project_dir / "llm-api/src/memory.rs").exists()
+    assert (project_dir / "llm-chat/package.json").exists()
+    assert (project_dir / "llm-chat/Dockerfile").exists()
+    assert (project_dir / "llm-chat/nginx.conf.template").exists()
+    assert (project_dir / "llm-chat/src/app.tsx").exists()
+    assert (project_dir / "llm-chat/src/styles.css").exists()
+    assert len(created_files) >= 24
+
+
+def test_create_llm_mcp_template_writes_expected_files(tmp_path: Path) -> None:
+    created_files = create_project(
+        template_name="llm-mcp",
+        destination=tmp_path,
+        interactive=False,
+        extra_context={
+            "project_name": "LLM MCP Server",
+            "project_slug": "llm-mcp-app",
+            "description": "MCP server example",
+            "http_port": "8080",
+        },
+    )
+
+    project_dir = tmp_path / "llm-mcp-app"
+
+    assert (project_dir / "Cargo.toml").exists()
+    assert (project_dir / "Dockerfile").exists()
+    assert (project_dir / "README.md").exists()
+    assert (project_dir / "compose.yaml").exists()
+    assert (project_dir / "src/main.rs").exists()
+    assert (project_dir / "src/config.rs").exists()
+    assert (project_dir / "src/error.rs").exists()
+    assert (project_dir / "src/jsonrpc.rs").exists()
+    assert (project_dir / "src/resources.rs").exists()
+    assert (project_dir / "src/prompts.rs").exists()
+    assert (project_dir / "src/server.rs").exists()
+    assert (project_dir / "src/tools.rs").exists()
+    assert len(created_files) >= 12
+
+
 def test_create_python_cli_template_writes_expected_files(tmp_path: Path) -> None:
     created_files = create_project(
         template_name="python-cli",
@@ -178,6 +304,36 @@ def test_create_python_cli_template_writes_expected_files(tmp_path: Path) -> Non
     assert len(created_files) >= 6
 
 
+def test_create_solid_site_template_writes_expected_files(tmp_path: Path) -> None:
+    created_files = create_project(
+        template_name="solid-site",
+        destination=tmp_path,
+        interactive=False,
+        extra_context={
+            "project_name": "Solid Site",
+            "project_slug": "solid-site-app",
+            "description": "MDX docs example",
+            "site_title": "Solid Site",
+        },
+    )
+
+    project_dir = tmp_path / "solid-site-app"
+
+    assert (project_dir / "package.json").exists()
+    assert (project_dir / "deno.json").exists()
+    assert (project_dir / "app.config.ts").exists()
+    assert (project_dir / "tsconfig.json").exists()
+    assert (project_dir / "src/app.tsx").exists()
+    assert (project_dir / "src/entry-client.tsx").exists()
+    assert (project_dir / "src/entry-server.tsx").exists()
+    assert (project_dir / "src/routes/[...404].tsx").exists()
+    assert (project_dir / "src/routes/index.mdx").exists()
+    assert (project_dir / "src/routes/guide/getting-started.mdx").exists()
+    assert (project_dir / "src/routes/reference/project-structure.mdx").exists()
+    assert (project_dir / "public/favicon.svg").exists()
+    assert len(created_files) >= 12
+
+
 def test_cli_create_succeeds_in_empty_directory() -> None:
     with runner.isolated_filesystem():
         result = runner.invoke(
@@ -186,11 +342,11 @@ def test_cli_create_succeeds_in_empty_directory() -> None:
             input="My Site\nmy-site\n",
         )
 
-        assert result.exit_code == 2
-        # assert "Created 4 files" in result.stdout
+        assert result.exit_code == 0
+        assert "Created 4 files" in result.stdout
         assert "project_name" in result.stdout
         assert "project_slug" in result.stdout
-        # assert Path("my-site/index.html").exists()
+        assert Path("my-site/index.html").exists()
 
 
 def test_cli_create_accepts_output_directory() -> None:
@@ -201,8 +357,8 @@ def test_cli_create_accepts_output_directory() -> None:
             input="Generated Site\ngenerated-site\n",
         )
 
-        assert result.exit_code == 2
-        # assert Path("generated/generated-site/index.html").exists()
+        assert result.exit_code == 0
+        assert Path("generated/generated-site/index.html").exists()
 
 
 def test_cli_create_accepts_extra_context() -> None:
@@ -219,8 +375,8 @@ def test_cli_create_accepts_extra_context() -> None:
             ],
         )
 
-        assert result.exit_code == 2
-        # assert Path("context-site/index.html").exists()
+        assert result.exit_code == 0
+        assert Path("context-site/index.html").exists()
         assert "project_name" not in result.stdout
         assert "project_slug" not in result.stdout
 
@@ -232,8 +388,8 @@ def test_cli_create_accepts_defaults_flag() -> None:
             ["create", "html-static", "--defaults"],
         )
 
-        assert result.exit_code == 2
-        # assert Path("html-static/index.html").exists()
+        assert result.exit_code == 0
+        assert Path("html-static/index.html").exists()
         assert "project_name" not in result.stdout
         assert "project_slug" not in result.stdout
 
@@ -251,8 +407,8 @@ def test_cli_create_accepts_defaults_flag_with_partial_extra_context() -> None:
             ],
         )
 
-        assert result.exit_code == 2
-        # assert Path("my-site/index.html").exists()
+        assert result.exit_code == 0
+        assert Path("my-site/index.html").exists()
         assert "project_name" not in result.stdout
         assert "project_slug" not in result.stdout
 
@@ -270,10 +426,10 @@ def test_cli_create_prompts_for_missing_extra_context() -> None:
             input="partial-site\n",
         )
 
-        assert result.exit_code == 2
+        assert result.exit_code == 0
         assert "project_slug" in result.stdout
         assert "project_name" not in result.stdout
-        # assert Path("partial-site/index.html").exists()
+        assert Path("partial-site/index.html").exists()
 
 
 def test_cli_rejects_unknown_template() -> None:
@@ -304,8 +460,8 @@ def test_cli_rejects_non_empty_directory() -> None:
             input="Another Site\nanother-site\n",
         )
 
-        assert result.exit_code == 2
-        # assert Path("another-site/index.html").exists()
+        assert result.exit_code == 0
+        assert Path("another-site/index.html").exists()
 
 
 def test_cli_lists_templates() -> None:
@@ -319,6 +475,7 @@ def test_cli_lists_templates() -> None:
     assert "python-cli" in result.stdout
     assert "rust-cli" in result.stdout
     assert "rust-rest-postgres" in result.stdout
+    assert "solid-site" in result.stdout
     assert "html-static" in result.stdout
     assert "minimal static HTML site" in result.stdout
 
@@ -392,6 +549,16 @@ def test_cli_lists_node_docs_template_variables() -> None:
     assert '"Node Docs"' in result.stdout
     assert "site_title" in result.stdout
     assert '"Node Docs"' in result.stdout
+
+
+def test_cli_lists_solid_site_template_variables() -> None:
+    result = runner.invoke(app, ["list-template-variables", "solid-site"])
+
+    assert result.exit_code == 0
+    assert "project_name" in result.stdout
+    assert '"Solid Site"' in result.stdout
+    assert "site_title" in result.stdout
+    assert '"Solid Site"' in result.stdout
 
 
 def test_cli_rejects_unknown_template_for_variable_listing() -> None:

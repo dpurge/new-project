@@ -1,0 +1,9 @@
+{
+  "nodeModulesDir": "auto",
+  "tasks": {
+    "dev": "deno run -A npm:vinxi dev",
+    "build": "deno run -A npm:vinxi build",
+    "start": "deno run -A npm:vinxi start",
+    "check": "deno run -A npm:tsc --noEmit"
+  }
+}

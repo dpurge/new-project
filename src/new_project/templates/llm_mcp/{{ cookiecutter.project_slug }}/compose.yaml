@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    environment:
+      MCP_TRANSPORT: all
+      HOST: 0.0.0.0
+      PORT: "{{ cookiecutter.http_port }}"
+      ALLOWED_ORIGINS: "http://localhost,http://127.0.0.1"
+      # MCP_AUTH_TOKEN: "replace-me"
+    ports:
+      - "{{ cookiecutter.http_port }}:{{ cookiecutter.http_port }}"

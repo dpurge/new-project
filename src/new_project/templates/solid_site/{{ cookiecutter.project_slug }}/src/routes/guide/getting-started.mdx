@@ -1,0 +1,31 @@
+---
+title: Getting Started
+description: Install dependencies and run the site locally.
+---
+
+# Getting Started
+
+Start the development server:
+
+```bash
+deno task dev
+```
+
+Deno will resolve the npm dependencies declared in `package.json` the first time
+you run a task.
+
+Build the production output:
+
+```bash
+deno task build
+```
+
+## Why this setup
+
+SolidBase supports Markdown and MDX out of the box, while SolidStart handles
+the application shell and static generation. Deno provides the task runner and
+runtime entrypoint for local development.
+
+> [!IMPORTANT]
+> Keep long-form documentation in MDX route files so navigation and page
+> metadata stay close to the content.
