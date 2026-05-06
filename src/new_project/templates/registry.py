@@ -44,6 +44,11 @@ TEMPLATES: dict[str, Template] = {
         description="A minimal static HTML site with semantic structure and a stylesheet.",
         directory_name="html_static",
     ),
+    "jupyter-notebook": Template(
+        name="jupyter-notebook",
+        description="A project for Jupyter notebooks managed by uv.",
+        directory_name="jupyter_notebook",
+    ),
     "llm-api": Template(
         name="llm-api",
         description="A Rust streaming proxy for an OpenAI-compatible LLM backend configured through environment variables.",

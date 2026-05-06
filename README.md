@@ -89,3 +89,15 @@ Run the test suite with:
 ```bash
 uv run pytest
 ```
+
+### Installation
+
+To install the project to make it available globally in your system,
+make sure you are in the project directory and run the command:
+
+```bash
+uv tool install . -e
+```
+
+The flag `-e` makes the it an "editable" installation, which means that
+changes you make to the source code of the package are instantly reflected in the command.
