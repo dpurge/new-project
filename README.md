@@ -1,8 +1,9 @@
-## new-project
+# Command `new-project`
 
-`new-project` is a small CLI for scaffolding projects from internal templates.
+The `new-project` is a small CLI for scaffolding projects from internal templates.
+Fails on Windows in Powershell because of a bug in cookiecutter; works in bash on Windows.
 
-### Layout
+## Layout
 
 - `src/new_project/cli.py`: root Typer application
 - `src/new_project/commands/`: thin CLI command wrappers
@@ -10,7 +11,7 @@
 - `src/new_project/templates/`: internal template definitions
 - `tests/`: CLI and application tests
 
-### Usage
+## Usage
 
 List the available templates:
 
@@ -82,7 +83,7 @@ To skip prompts entirely and use template defaults for any missing values, use
 uv run new-project create html-static --defaults
 ```
 
-### Tests
+## Tests
 
 Run the test suite with:
 
@@ -90,7 +91,7 @@ Run the test suite with:
 uv run pytest
 ```
 
-### Installation
+## Installation
 
 To install the project to make it available globally in your system,
 make sure you are in the project directory and run the command:
@@ -101,3 +102,9 @@ uv tool install . -e
 
 The flag `-e` makes the it an "editable" installation, which means that
 changes you make to the source code of the package are instantly reflected in the command.
+
+To uninstall:
+
+```bash
+uv tool uninstall new-project
+```
